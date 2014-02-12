@@ -1,0 +1,37 @@
+# Copyright (C) 2014 Custom 404 Error Page
+# This file is distributed under the same license as the Custom 404 Error Page package.
+msgid ""
+msgstr ""
+"Project-Id-Version: Custom 404 Error Page 0.1\n"
+"Report-Msgid-Bugs-To: http://wordpress.org/tag/custom-404-page\n"
+"POT-Creation-Date: 2014-02-12 13:26:43+00:00\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"PO-Revision-Date: 2014-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+
+#: custom-404-page.php:83
+msgid "Page for Error 404 (Not Found)"
+msgstr ""
+
+#: custom-404-page.php:100
+msgid "Default (404.php template)"
+msgstr ""
+
+#: custom-404-page.php:110
+msgid "Add New"
+msgstr ""
+
+#. Plugin Name of the plugin/theme
+msgid "Custom 404 Error Page"
+msgstr ""
+
+#. Description of the plugin/theme
+msgid "Set any page to be used as 404 error page."
+msgstr ""
+
+#. Author of the plugin/theme
+msgid "Kaspars Dambis"
+msgstr ""
