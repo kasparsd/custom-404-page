@@ -18,6 +18,7 @@ class Custom404Page {
 
 	var $page_for_404 = null;
 	private static $instance;
+	var $plugin_path;
 
 
 	public static function instance() {
@@ -34,6 +35,9 @@ class Custom404Page {
 
 
 	private function __construct() {
+
+		// This will allow for symlinked plugins
+		$this->plugin_path = sprintf( '%s/%s/%s', WP_PLUGIN_DIR, basename( dirname( __FILE__ ) ), basename( __FILE__ ) );
 
 		$this->page_for_404 = get_option( 'page_for_404' );
 
@@ -71,6 +75,11 @@ class Custom404Page {
 
 
 	function custom_404_page_admin_settings() {
+		
+		add_filter( 
+			'plugin_action_links_' . plugin_basename( $this->plugin_path ), 
+			array( $this, 'plugin_settings_link' ) 
+		);
 		
 		register_setting( 
 			'reading', 
@@ -147,6 +156,19 @@ class Custom404Page {
 		}
 
 		return $posts;
+
+	}
+
+
+	function plugin_settings_link( $links ) {
+		
+		$links[] = sprintf( 
+			'<a href="%s">%s</a>', 
+			admin_url( 'options-reading.php' ), 
+			__( 'Settings', 'custom-404-page' ) 
+		);
+		
+		return $links;
 
 	}
 
