@@ -30,5 +30,8 @@ Shouldn't be any.
 
 == Changelog ==
 
+= 0.2 =
+* Custom 404 error page can now be set from the Theme Customizer.
+
 = 0.1 =
 * Initial release.
