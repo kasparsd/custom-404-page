@@ -81,7 +81,7 @@ class Custom404Page {
 		add_settings_field( 
 			'page_for_404', 
 			__( 'Page for Error 404 (Not Found)', 'custom-404-page' ), 
-			'page_for_404_callback', 
+			array( $this, 'page_for_404_callback' ), 
 			'reading', 
 			'default'
 		);
