@@ -10,29 +10,47 @@ Text Domain: custom-404-page
 */
 
 
+if ( defined( 'ABSPATH' ) )
+	Custom404Page::instance();
+
+
 class Custom404Page {
 
 	var $page_for_404 = null;
+	private static $instance;
 
 
-	function __construct() {
+	public static function instance() {
+
+		if ( self::$instance ) {
+			return self::$instance;
+		}
+
+		self::$instance = new self();
+
+		return self::$instance;
+
+	}
+
+
+	private function __construct() {
 
 		$this->page_for_404 = get_option( 'page_for_404' );
 
 		// Add Page 404 settings to Settings > Reading
-		add_action( 'admin_init', 'custom_404_error_admin_settings' );
+		add_action( 'admin_init', array( $this, 'custom_404_error_admin_settings' ) );
 
 		if ( $this->page_for_404 ) {
 
 			// Set WP to use page template (page.php) even when returning 404
-			add_filter( '404_template', 'maybe_use_custom_404_template' );
+			add_filter( '404_template', array( $this, 'maybe_use_custom_404_template' ) );
 			
 			// Set our custom 404 page for the loop
-			add_filter( 'the_posts', 'maybe_set_custom_404_page' );
+			add_filter( 'the_posts', array( $this, 'maybe_set_custom_404_page' ) );
 			
 			// Disable direct access to our custom 404 page
-			add_action( 'template_redirect', 'maybe_redirect_custom_404_page' );
-			
+			add_action( 'template_redirect',  array( $this, 'maybe_redirect_custom_404_page' ) );
+
 		}
 
 	}
