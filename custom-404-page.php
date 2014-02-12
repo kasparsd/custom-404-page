@@ -44,6 +44,9 @@ class Custom404Page {
 		// Add Page 404 settings to Settings > Reading
 		add_action( 'admin_init', array( $this, 'custom_404_page_admin_settings' ) );
 
+		// Add settings to Theme Customizer as well
+		add_action( 'customize_register', array( $this, 'custom_404_page_customizer_init' ) );
+
 		// Load the translation files
 		add_action( 'plugins_loaded', array( $this, 'custom_404_page_textdomain' ) );
 
@@ -75,11 +78,20 @@ class Custom404Page {
 
 
 	function custom_404_page_admin_settings() {
+
+		/**
+		 * Add a direct link to the plugin config on the plugin list page
+		 */
 		
 		add_filter( 
 			'plugin_action_links_' . plugin_basename( $this->plugin_path ), 
 			array( $this, 'plugin_settings_link' ) 
 		);
+		
+
+		/**
+		 * Use Settings API to add our field to the Reading Options page
+		 */
 		
 		register_setting( 
 			'reading', 
@@ -94,6 +106,31 @@ class Custom404Page {
 			'reading', 
 			'default'
 		);
+
+	}
+
+
+	function custom_404_page_customizer_init( $wp_customize ) {
+
+		$wp_customize->add_setting( 
+			'page_for_404', 
+			array(
+				'type' => 'option',
+				'capability' => 'manage_options'
+			)
+		);
+
+		$wp_customize->add_control( 
+			'page_for_404', 
+			array(
+				'label' => __( 'Error 404 page', 'custom-404-page' ),
+				'section' => 'static_front_page',
+				'type' => 'dropdown-pages',
+				'priority' => 20
+			)
+		);
+
+		return $wp_customize;
 
 	}
 
