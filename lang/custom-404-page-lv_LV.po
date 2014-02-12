@@ -4,31 +4,35 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Custom 404 Error Page 0.1\n"
 "Report-Msgid-Bugs-To: http://wordpress.org/tag/custom-404-page\n"
-"POT-Creation-Date: 2014-02-12 14:01:21+00:00\n"
-"PO-Revision-Date: 2014-02-12 16:01+0200\n"
+"POT-Creation-Date: 2014-02-12 20:07:26+00:00\n"
+"PO-Revision-Date: 2014-02-12 22:08+0200\n"
 "Last-Translator: Kaspars <kaspars@konstruktors.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: lv\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 1.6.3\n"
+"X-Generator: Poedit 1.6.4\n"
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n != 0 ? 1 : "
 "2);\n"
 
-#: custom-404-page.php:92
+#: custom-404-page.php:104
 msgid "Page for Error 404 (Not Found)"
 msgstr "Lapa kļūdas 404 (netika atraksts) paziņojumam"
 
-#: custom-404-page.php:109
+#: custom-404-page.php:126
+msgid "Error 404 page"
+msgstr "Lapa 404 kļūdai"
+
+#: custom-404-page.php:146
 msgid "Default (404.php template)"
 msgstr "Noklusētā (404.php šablons)"
 
-#: custom-404-page.php:119
+#: custom-404-page.php:156
 msgid "Add New"
 msgstr "Izveidot jaunu"
 
-#: custom-404-page.php:168
+#: custom-404-page.php:205
 msgid "Settings"
 msgstr "Uzstādījumi"
 
