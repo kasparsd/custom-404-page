@@ -3,7 +3,7 @@ Contributors: kasparsd, metronet
 Tags: 404, page, custom 404, error page, not found, page not found, seo
 Requires at least: 3.0
 Tested up to: 3.8.1
-Stable tag: 0.1
+Stable tag: 0.2
 
 Use any page as the 404 error page.
 

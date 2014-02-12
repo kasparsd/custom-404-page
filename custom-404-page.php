@@ -3,7 +3,7 @@
 Plugin Name: Custom 404 Error Page
 Plugin URI: 
 Description: Set any page to be used as 404 error page.
-Version: 0.1
+Version: 0.2
 Author: Kaspars Dambis
 Domain Path: /lang
 Text Domain: custom-404-page
