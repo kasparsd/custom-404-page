@@ -38,7 +38,10 @@ class Custom404Page {
 		$this->page_for_404 = get_option( 'page_for_404' );
 
 		// Add Page 404 settings to Settings > Reading
-		add_action( 'admin_init', array( $this, 'custom_404_error_admin_settings' ) );
+		add_action( 'admin_init', array( $this, 'custom_404_page_admin_settings' ) );
+
+		// Load the translation files
+		add_action( 'plugins_loaded', array( $this, 'custom_404_page_textdomain' ) );
 
 		if ( $this->page_for_404 ) {
 
@@ -56,7 +59,18 @@ class Custom404Page {
 	}
 
 
-	function custom_404_error_admin_settings() {
+	function custom_404_page_textdomain() {
+
+		load_plugin_textdomain( 
+			'custom-404-page', 
+			null, 
+			basename( dirname( __FILE__ ) ) . '/lang/' 
+		);
+
+	}
+
+
+	function custom_404_page_admin_settings() {
 		
 		register_setting( 
 			'reading', 
@@ -102,7 +116,9 @@ class Custom404Page {
 	function maybe_use_custom_404_template( $template ) {
 
 		if ( is_404() && $this->page_for_404 ) {
+
 			return get_page_template();
+
 		}
 
 		return $template;
@@ -125,7 +141,9 @@ class Custom404Page {
 	function maybe_set_custom_404_page( $posts ) {
 
 		if ( is_404() && $this->page_for_404 ) {
+
 			return array( get_post( $this->page_for_404 ) );
+
 		}
 
 		return $posts;
