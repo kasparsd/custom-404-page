@@ -3,7 +3,7 @@
 Plugin Name: Custom 404 Error Page
 Plugin URI: 
 Description: Set any page to be used as 404 error page.
-Version: 0.2.1
+Version: 0.2.2
 Author: Kaspars Dambis
 Domain Path: /lang
 Text Domain: custom-404-page
@@ -186,11 +186,11 @@ class Custom404Page {
 
 	function maybe_set_custom_404_page( $posts ) {
 
-		// is_404() returns false at this point because
+		// is_404() might return false at this point because
 		// we changed the template to page.php. Instead we check for empty
 		// posts array.
 		
-		if ( is_page() && empty( $posts ) && $this->page_for_404 ) {
+		if ( ( is_404() || ( is_page() && empty( $posts ) ) ) && $this->page_for_404 ) {
 
 			return array( get_post( $this->page_for_404 ) );
 
