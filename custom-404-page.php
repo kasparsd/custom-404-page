@@ -3,7 +3,7 @@
 Plugin Name: Custom 404 Error Page
 Plugin URI: 
 Description: Set any page to be used as 404 error page.
-Version: 0.2.2
+Version: 0.2.3
 Author: Kaspars Dambis
 Domain Path: /lang
 Text Domain: custom-404-page
@@ -54,9 +54,6 @@ class Custom404Page {
 
 			// Set WP to use page template (page.php) even when returning 404
 			add_filter( '404_template', array( $this, 'maybe_use_custom_404_template' ) );
-			
-			// Set our custom 404 page for the loop
-			add_filter( 'the_posts', array( $this, 'maybe_set_custom_404_page' ) );
 			
 			// Disable direct access to our custom 404 page
 			add_action( 'template_redirect',  array( $this, 'maybe_redirect_custom_404_page' ) );
@@ -161,7 +158,15 @@ class Custom404Page {
 
 	function maybe_use_custom_404_template( $template ) {
 
+		global $wp_query;
+
 		if ( is_404() && $this->page_for_404 ) {
+
+			$wp_query->posts = array( get_post( $this->page_for_404 ) );
+
+			$wp_query->post_count = 1;
+			$wp_query->found_posts = 1;
+			$wp_query->max_num_pages = 0;
 
 			return get_page_template();
 
@@ -180,23 +185,6 @@ class Custom404Page {
 			exit;
 		
 		}
-
-	}
-
-
-	function maybe_set_custom_404_page( $posts ) {
-
-		// is_404() might return false at this point because
-		// we changed the template to page.php. Instead we check for empty
-		// posts array.
-		
-		if ( ( is_404() || ( is_page() && empty( $posts ) ) ) && $this->page_for_404 ) {
-
-			return array( get_post( $this->page_for_404 ) );
-
-		}
-
-		return $posts;
 
 	}
 

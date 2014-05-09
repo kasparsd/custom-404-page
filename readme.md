@@ -3,7 +3,7 @@
 Contributors: kasparsd, metronet   
 Tags: 404, page, custom 404, error page, not found, page not found, seo   
 Requires at least: 3.0   
-Tested up to: 3.9   
+Tested up to: 3.9.1   
 Stable tag: trunk
 
 Use any static page as the 404 error page.
@@ -32,6 +32,9 @@ Shouldn't be any.
 
 
 ## Changelog
+
+### 0.2.3
+* Set custom page in `$wp_query->posts` during template select.
 
 ### 0.2.2
 * Even more reliable check for 404 page when a page template is used.
