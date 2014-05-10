@@ -33,6 +33,9 @@ Shouldn't be any.
 
 ## Changelog
 
+### 0.2.4
+* Enable page templates for custom 404 pages.
+
 ### 0.2.3
 * Set custom page in `$wp_query->posts` during template select.
 
