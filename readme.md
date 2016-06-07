@@ -1,9 +1,9 @@
 # Custom 404 Error Page
 
-Contributors: kasparsd, metronet   
+Contributors: kasparsd   
 Tags: 404, page, custom 404, error page, not found, page not found, seo   
 Requires at least: 3.0   
-Tested up to: 3.9.1   
+Tested up to: 4.5.2   
 Stable tag: trunk
 
 Use any static page as the 404 error page.
@@ -12,8 +12,6 @@ Use any static page as the 404 error page.
 ## Description
 
 Set any page to be used as the 404 error page under **"Settings > Reading"**.
-
-A plugin by [Metronet](http://metronet.no)
 
 
 ## Installation
@@ -32,6 +30,9 @@ Shouldn't be any.
 
 
 ## Changelog
+
+### 0.2.5
+* Tested with WordPress 4.5.2.
 
 ### 0.2.4
 * Enable page templates for custom 404 pages.

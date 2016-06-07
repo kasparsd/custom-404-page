@@ -1,9 +1,9 @@
 <?php
 /*
 Plugin Name: Custom 404 Error Page
-Plugin URI: 
+Plugin URI: https://github.com/kasparsd/custom-404-page
 Description: Set any page to be used as 404 error page.
-Version: 0.2.4
+Version: 0.2.5
 Author: Kaspars Dambis
 Domain Path: /lang
 Text Domain: custom-404-page
@@ -54,7 +54,7 @@ class Custom404Page {
 
 			// Set WP to use page template (page.php) even when returning 404
 			add_filter( '404_template', array( $this, 'maybe_use_custom_404_template' ) );
-			
+
 			// Disable direct access to our custom 404 page
 			add_action( 'template_redirect',  array( $this, 'maybe_redirect_custom_404_page' ) );
 
@@ -65,10 +65,10 @@ class Custom404Page {
 
 	function custom_404_page_textdomain() {
 
-		load_plugin_textdomain( 
-			'custom-404-page', 
-			null, 
-			basename( dirname( __FILE__ ) ) . '/lang/' 
+		load_plugin_textdomain(
+			'custom-404-page',
+			null,
+			basename( dirname( __FILE__ ) ) . '/lang/'
 		);
 
 	}
@@ -79,28 +79,28 @@ class Custom404Page {
 		/**
 		 * Add a direct link to the plugin config on the plugin list page
 		 */
-		
-		add_filter( 
-			'plugin_action_links_' . plugin_basename( $this->plugin_path ), 
-			array( $this, 'plugin_settings_link' ) 
+
+		add_filter(
+			'plugin_action_links_' . plugin_basename( $this->plugin_path ),
+			array( $this, 'plugin_settings_link' )
 		);
-		
+
 
 		/**
 		 * Use Settings API to add our field to the Reading Options page
 		 */
-		
-		register_setting( 
-			'reading', 
-			'page_for_404', 
+
+		register_setting(
+			'reading',
+			'page_for_404',
 			'intval'
 		);
 
-		add_settings_field( 
-			'page_for_404', 
-			__( 'Page for Error 404 (Not Found)', 'custom-404-page' ), 
-			array( $this, 'page_for_404_callback' ), 
-			'reading', 
+		add_settings_field(
+			'page_for_404',
+			__( 'Page for Error 404 (Not Found)', 'custom-404-page' ),
+			array( $this, 'page_for_404_callback' ),
+			'reading',
 			'default'
 		);
 
@@ -109,16 +109,16 @@ class Custom404Page {
 
 	function custom_404_page_customizer_init( $wp_customize ) {
 
-		$wp_customize->add_setting( 
-			'page_for_404', 
+		$wp_customize->add_setting(
+			'page_for_404',
 			array(
 				'type' => 'option',
 				'capability' => 'manage_options'
 			)
 		);
 
-		$wp_customize->add_control( 
-			'page_for_404', 
+		$wp_customize->add_control(
+			'page_for_404',
 			array(
 				'label' => __( 'Error 404 page', 'custom-404-page' ),
 				'section' => 'static_front_page',
@@ -139,18 +139,18 @@ class Custom404Page {
 			get_option( 'page_for_posts' )
 		) );
 
-		wp_dropdown_pages( array( 
+		wp_dropdown_pages( array(
 			'show_option_none' => __( 'Default (404.php template)', 'custom-404-page' ),
 			'option_none_value' => null,
-			'selected' => $this->page_for_404, 
+			'selected' => $this->page_for_404,
 			'name' => 'page_for_404',
 			'exclude' => implode( ',', $exclude )
 		) );
 
-		printf( 
+		printf(
 			'<a href="%s">%s</a>',
 			admin_url( '/post-new.php?post_type=page' ),
-			__( 'Add New', 'custom-404-page' ) 
+			__( 'Add New', 'custom-404-page' )
 		);
 
 	}
@@ -173,7 +173,7 @@ class Custom404Page {
 			// Set the query object to enable support for custom page templates
 			$wp_query->queried_object_id = $this->page_for_404;
 			$wp_query->queried_object = $post;
-			
+
 			// Set post counters to avoid loop errors
 			$wp_query->post_count = 1;
 			$wp_query->found_posts = 1;
@@ -195,24 +195,23 @@ class Custom404Page {
 
 			wp_redirect( home_url(), 301 );
 			exit;
-		
+
 		}
 
 	}
 
 
 	function plugin_settings_link( $links ) {
-		
-		$links[] = sprintf( 
-			'<a href="%s">%s</a>', 
-			admin_url( 'options-reading.php' ), 
-			__( 'Settings', 'custom-404-page' ) 
+
+		$links[] = sprintf(
+			'<a href="%s">%s</a>',
+			admin_url( 'options-reading.php' ),
+			__( 'Settings', 'custom-404-page' )
 		);
-		
+
 		return $links;
 
 	}
 
 
 }
-
