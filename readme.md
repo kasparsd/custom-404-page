@@ -1,7 +1,7 @@
 # Custom 404 Error Page
 
 Contributors: kasparsd   
-Tags: 404, page, custom 404, error page, not found, page not found, seo   
+Tags: 404, page, not found, custom, seo   
 Requires at least: 3.0   
 Tested up to: 6.8   
 Stable tag: trunk
