@@ -8,7 +8,7 @@ Requires at least: 3.0
 Tested up to: 6.8   
 Stable tag: trunk
 
-Use any static page as the 404 error page.
+Use any page as a custom 404 error page.
 
 
 ## Description
