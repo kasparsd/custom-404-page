@@ -120,8 +120,8 @@ class Custom404Page {
 
 		printf(
 			'<a href="%s">%s</a>',
-			admin_url( '/post-new.php?post_type=page' ),
-			__( 'Add New', 'custom-404-page' )
+			esc_url( admin_url( '/post-new.php?post_type=page' ) ),
+			esc_html__( 'Add New', 'custom-404-page' )
 		);
 
 	}
@@ -176,8 +176,8 @@ class Custom404Page {
 
 		$links[] = sprintf(
 			'<a href="%s">%s</a>',
-			admin_url( 'options-reading.php' ),
-			__( 'Settings', 'custom-404-page' )
+			esc_url( admin_url( 'options-reading.php' ) ),
+			esc_html__( 'Settings', 'custom-404-page' )
 		);
 
 		return $links;
