@@ -12,4 +12,16 @@ if ( ! function_exists( 'add_action' ) ) {
 	return;
 }
 
-add_action( 'plugins_loaded', [ Custom404Page::class, 'instance' ] );
+require_once __DIR__ . '/php/class-plugin.php';
+
+function custom_404_page() {
+	static $instance;
+
+	if ( ! isset( $instance ) ) {
+		$instance = new Custom404Page( __FILE__ );
+	}
+
+	return $instance;
+}
+
+add_action( 'plugins_loaded', [ custom_404_page(), 'init' ] );
