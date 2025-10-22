@@ -1,59 +1,54 @@
-# Custom 404 Error Page
+=== Custom 404 Error Page ===
 
-Contributors: kasparsd   
-Tags: 404, page, not found, custom, seo   
-License: GPLv2 or later   
-License URI: https://www.gnu.org/licenses/gpl-2.0.html   
-Requires at least: 3.0   
-Tested up to: 6.8   
+Contributors: kasparsd
+Tags: 404, page, not found, custom, seo
+License: GPLv2 or later
+License URI: https://www.gnu.org/licenses/gpl-2.0.html
+Requires at least: 3.0
+Tested up to: 6.8
 Stable tag: trunk
 
-Use any page as a custom 404 error page.
+Use any static page as the 404 error page.
 
-
-## Description
+== Description ==
 
 Set any page to be used as the 404 error page under **"Settings > Reading"**.
 
-
-## Installation
+== Installation ==
 
 Search for "Custom 404 Error Page" using the standard plugin installer.
 
-
-## Frequently Asked Questions
+== Frequently Asked Questions ==
 
 Shouldn't be any.
 
-
-## Screenshots
+== Screenshots ==
 
 1. Custom 404 Error Page Settings
 
+== Changelog ==
 
-## Changelog
-
-### 0.2.6
+= 0.2.6 =
 * Update per latest WordPress coding standards.
 * Tested with WordPress WordPress 6.8.
 
-### 0.2.5
+= 0.2.5 =
 * Tested with WordPress 4.5.2.
 
-### 0.2.4
+= 0.2.4 =
 * Enable page templates for custom 404 pages.
 
-### 0.2.3
+= 0.2.3 =
 * Set custom page in `$wp_query->posts` during template select.
 
-### 0.2.2
+= 0.2.2 =
 * Even more reliable check for 404 page when a page template is used.
 
-### 0.2.1
+= 0.2.1 =
 * More reliable check for 404 page when a page template is used.
 
-### 0.2
+= 0.2 =
 * Custom 404 error page can now be set from the Theme Customizer.
 
-### 0.1
+= 0.1 =
 * Initial release.
