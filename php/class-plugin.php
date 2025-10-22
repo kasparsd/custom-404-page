@@ -32,9 +32,6 @@ class Custom404Page {
 		// Add settings to Theme Customizer as well
 		add_action( 'customize_register', array( $this, 'custom_404_page_customizer_init' ) );
 
-		// Load the translation files
-		add_action( 'plugins_loaded', array( $this, 'custom_404_page_textdomain' ) );
-
 		if ( $this->page_for_404 ) {
 
 			// Set WP to use page template (page.php) even when returning 404
@@ -44,17 +41,6 @@ class Custom404Page {
 			add_action( 'template_redirect',  array( $this, 'maybe_redirect_custom_404_page' ) );
 
 		}
-
-	}
-
-
-	function custom_404_page_textdomain() {
-
-		load_plugin_textdomain(
-			'custom-404-page',
-			null,
-			basename( dirname( __FILE__ ) ) . '/lang/'
-		);
 
 	}
 

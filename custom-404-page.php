@@ -5,7 +5,6 @@ Plugin URI: https://github.com/kasparsd/custom-404-page
 Description: Set any page to be used as 404 error page.
 Version: 0.2.5
 Author: Kaspars Dambis
-Domain Path: /lang
 Text Domain: custom-404-page
 */
 
