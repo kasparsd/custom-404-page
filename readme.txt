@@ -6,7 +6,7 @@ License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 Requires at least: 3.0
 Tested up to: 6.8
-Stable tag: trunk
+Stable tag: 0.2.6
 
 Use any static page as the 404 error page.
 
