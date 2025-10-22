@@ -31,6 +31,10 @@ Shouldn't be any.
 
 ## Changelog
 
+### 0.2.6
+* Update per latest WordPress coding standards.
+* Tested with WordPress WordPress 6.8.
+
 ### 0.2.5
 * Tested with WordPress 4.5.2.
 
