@@ -1,0 +1,6 @@
+svn/
+assets/
+readme.md
+.git/
+.*
+/.
