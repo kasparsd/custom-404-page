@@ -2,6 +2,8 @@
 
 Contributors: kasparsd   
 Tags: 404, page, not found, custom, seo   
+License: GPLv2 or later   
+License URI: https://www.gnu.org/licenses/gpl-2.0.html   
 Requires at least: 3.0   
 Tested up to: 6.8   
 Stable tag: trunk
