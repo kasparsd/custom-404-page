@@ -1,0 +1,16 @@
+{
+	"$schema": "https://playground.wordpress.net/blueprint-schema.json",
+	"landingPage": "/wp-admin/options-reading.php",
+	"plugins": [
+		{
+			"resource": "wordpress.org/plugins",
+			"slug": "custom-404-error-page"
+		}
+	],
+	"steps": [
+		{
+			"step": "login",
+			"username": "admin"
+		}
+	]
+}
