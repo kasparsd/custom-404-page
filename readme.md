@@ -1,53 +1,17 @@
 # Custom 404 Error Page
 
-Contributors: kasparsd   
-Tags: 404, page, custom 404, error page, not found, page not found, seo   
-Requires at least: 3.0   
-Tested up to: 4.5.2   
-Stable tag: trunk
-
-Use any static page as the 404 error page.
-
-
-## Description
-
 Set any page to be used as the 404 error page under **"Settings > Reading"**.
 
+## Contribute
 
-## Installation
+### Release
 
-Search for "Custom 404 Error Page" using the standard plugin installer.
+- Update version in `custom-404-page.php` and `readme.txt`.
+- Add changelog entry to `readme.txt` using semantic versioning.
+- Run `svn co https://plugins.svn.wordpress.org/custom-404-error-page/ svn` to checkout the SVN repository.
+- Run `rsync -aiv --delete --delete-excluded --exclude-from=.distignore . svn/tags/0.2.6` to create the tag or `rsync -aiv --delete --delete-excluded --exclude-from=.distignore . svn/trunk/` to update `trunk`.
+- Run `rsync -aiv --delete --delete-excluded --exclude-from=.distignore assets/ svn/assets/` to commit the assets.
 
+## Credits
 
-## Frequently Asked Questions
-
-Shouldn't be any.
-
-
-## Screenshots
-
-1. Custom 404 Error Page Settings
-
-
-## Changelog
-
-### 0.2.5
-* Tested with WordPress 4.5.2.
-
-### 0.2.4
-* Enable page templates for custom 404 pages.
-
-### 0.2.3
-* Set custom page in `$wp_query->posts` during template select.
-
-### 0.2.2
-* Even more reliable check for 404 page when a page template is used.
-
-### 0.2.1
-* More reliable check for 404 page when a page template is used.
-
-### 0.2
-* Custom 404 error page can now be set from the Theme Customizer.
-
-### 0.1
-* Initial release.
+Created by [Kaspars Dambis](https://kaspars.net).
